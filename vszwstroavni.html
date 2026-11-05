@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8"><title>Stín nad Baker Street</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#1a1a1a;color:#ccc}
+header{background:#111;padding:15px 30px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #444}
+header h1{color:#fff;font-size:1.2em;text-transform:uppercase}
+header small{color:#888;font-size:0.7em}
+.logo{width:45px;height:45px;border:2px solid #888;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3em}
+nav{background:#222;display:flex;border-bottom:1px solid #444}
+nav a{color:#aaa;text-decoration:none;padding:10px 20px;font-size:0.8em;cursor:pointer;border-bottom:2px solid transparent}
+nav a:hover,nav a.aktivni{color:#fff;border-bottom:2px solid #fff}
+.obsah{display:none;padding:25px;max-width:1100px;margin:0 auto}
+.obsah.aktivni{display:flex;gap:30px;flex-wrap:wrap}
+.hlavni{flex:2;min-width:280px}
+.bokem{flex:1;min-width:200px;background:#222;padding:15px;border:1px solid #333}
+.bokem h3{color:#fff;margin-bottom:8px;font-size:0.9em;text-transform:uppercase}
+.bokem ul{list-style:none;line-height:1.8;font-size:0.85em}
+.bokem li::before{content:"▸ ";color:#888}
+.img-box{width:100%;height:140px;overflow:hidden;border:1px solid #555;border-radius:3px;margin-bottom:10px}
+.img-box img{width:100%;height:100%;object-fit:cover}
+/* Výřezy pro Místo činu */
+.cut-mistnost img{object-position: 22% 35%; scale: 1.2;}
+.cut-zamek img{object-position: 58% 35%; scale: 1.2;}
+.cut-dopis img{object-position: 78% 35%; scale: 1.2;}
+/* Výřez pro Oběť */
+.cut-obet img{object-position: 50% 50%; scale: 1.0;}
+h2{color:#fff;font-size:1em;text-transform:uppercase;margin-bottom:10px}
+p{line-height:1.6;margin-bottom:12px;font-size:0.9em}
+.galerie{display:flex;gap:10px;margin:10px 0}
+.galerie .img-box{width:32%;margin-bottom:0}
+.info-box{display:flex;gap:20px;margin-top:15px;padding-top:10px;border-top:1px solid #333}
+.info-box div h4{color:#fff;font-size:0.8em;text-transform:uppercase;margin-bottom:3px}
+.info-box div p{font-size:0.8em;margin:0}
+.dukaz{background:#222;border:1px solid #333;padding:12px;margin-bottom:10px}
+.dukaz h4{color:#fff;font-size:0.85em;margin-bottom:4px}
+.dukaz p{font-size:0.8em;margin:0}
+.tag{display:inline-block;background:#444;color:#ddd;padding:2px 6px;font-size:0.7em;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin-top:8px}
+th,td{text-align:left;padding:6px 10px;border-bottom:1px solid #333;font-size:0.85em}
+th{color:#fff;text-transform:uppercase;font-size:0.75em}
+footer{text-align:center;padding:12px;color:#555;font-size:0.7em;border-top:1px solid #333;margin-top:20px}
+footer a{color:#888;text-decoration:none;transition:color 0.2s}
+footer a:hover{color:#fff;text-decoration:underline}
+</style>
+</head>
+<body>
+<header><div><h1>Stín nad Baker Street</h1><small>Holmes | 5. 11. 1893</small></div><div class="logo">🔍</div></header>
+<nav><a class="aktivni" onclick="t(0)">Místo činu</a><a onclick="t(1)">Podezřelí</a><a onclick="t(2)">Důkazy</a><a onclick="t(3)">Závěr</a></nav>
+
+<div class="obsah aktivni">
+  <div class="hlavni">
+    <h2>Místo činu</h2>
+    <p>3. 11. 1893 byl v uzamčené pracovně nalezen mrtvý sir Reginald Ashworth. Scotland Yard případ uzavřel, ale Holmes našel stopy.</p>
+    <div class="galerie">
+      <div class="img-box"><img src="Detective_investigating_crime_scene_7891fb07_2K.jpg" alt="Vyšetřování"></div>
+      <div class="img-box cut-zamek"><img src="watermarked_img_15097367216024511381.jpg" alt="Zámek"></div>
+      <div class="img-box cut-dopis"><img src="watermarked_img_15402472196552091680.jpg" alt="Dopisy a sklenka"></div>
+    </div>
+    <div class="info-box"><div><h4>Místo</h4><p>Montague St. 14</p></div><div><h4>Oběť</h4><p>Reginald Ashworth, 58</p></div></div>
+  </div>
+  <div class="bokem">
+    <div class="img-box cut-obet"><img src="watermarked_img_12891676982730162781.jpg" alt="Portrét oběti"></div>
+    <h3>Profil oběti</h3>
+    <ul><li>Sir Reginald Ashworth</li><li>Bankéř, vdovec</li><li>Dědic: Synovec Edward</li></ul>
+  </div>
+</div>
+
+<div class="obsah">
+  <div class="hlavni">
+    <h2>Podezřelí</h2>
+    <table><tr><th>Jméno</th><th>Vztah</th><th>Motiv</th><th>Alibi</th></tr>
+    <tr><td>Edward</td><td>Synovec</td><td>Dědictví</td><td>V klubu?</td></tr>
+    <tr><td>Clara</td><td>Hospodyně</td><td>Mzda</td><td>V kuchyni</td></tr>
+    <tr><td>Dr. Whitfield</td><td>Lékař</td><td>Tajemství</td><td>Odjel 19:00</td></tr></table>
+  </div>
+  <div class="bokem"><h3>Hlavní podezřelý</h3><ul><li>Edward Ashworth</li><li>Dluhy 15 000 £</li></ul></div>
+</div>
+
+<div class="obsah">
+  <div class="hlavni">
+    <h2>Důkazy</h2>
+    <div class="dukaz"><h4>🥃 Brandy</h4><p>Obsahovala strychnin.</p><span class="tag">Jed</span></div>
+    <div class="dukaz"><h4>✉️ Dopis</h4><p>Úmysl změnit závěť.</p><span class="tag">Motiv</span></div>
+    <div class="dukaz"><h4>🔑 Zamčeno</h4><p>Trik se strunou a oknem.</p><span class="tag">Metoda</span></div>
+  </div>
+  <div class="bokem"><h3>Shrnutí stop</h3><ul><li>Strychnin</li><li>Dopis o závěti</li><li>Zamčený pokoj</li></ul></div>
+</div>
+
+<div class="obsah">
+  <div class="hlavni">
+    <h2>Závěr</h2>
+    <p><strong>Vrah: Edward Ashworth</strong>. Otrávil strýce strychninem, zamkl pokoj zevnitř a klíč protáhl oknem na struně.</p>
+    <p style="color:#fff"><em>„Když vyloučíte nemožné...“</em> — Holmes</p>
+  </div>
+  <div class="bokem"><h3>Verdikt</h3><ul><li>Pachatel: Edward</li><li>Motiv: Dědictví</li><li>Metoda: Strychnin</li></ul></div>
+</div>
+
+<footer>© 1893 <a href="https://www.sherlock-holmes.co.uk" target="_blank" rel="noopener noreferrer">Sherlock Holmes</a></footer>
+<script>
+function t(n){
+document.querySelectorAll('.obsah').forEach((s,i)=>s.classList.toggle('aktivni',i===n));
+document.querySelectorAll('nav a').forEach((a,i)=>a.classList.toggle('aktivni',i===n));
+}
+</script>
+</body>
+</html>
